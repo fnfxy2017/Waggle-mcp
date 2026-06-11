@@ -19,6 +19,23 @@ No cloud account. No API key. Local by default.
 - [Troubleshooting](./troubleshooting.md)
 - [Windows setup & troubleshooting](./troubleshooting.md#windows-specific-troubleshooting)
 
+## Client support matrix
+
+Not sure which guide to follow? This matrix shows what each install path configures. Every path runs Waggle locally over stdio.
+
+| Client | Install path | One-line command | MCP config location |
+|--------|--------------|------------------|---------------------|
+| [VS Code](./vscode.md) | Marketplace extension (one-click) or manual | `Waggle: Enable for this Workspace` | `.vscode/mcp.json` (`servers` root) |
+| [Smithery](./smithery.md) | `smithery.yaml` bundle + `pipx` | `pipx install waggle-mcp` | root `smithery.yaml` (stdio) |
+| [Claude Code](./claude-code.md) | `claude mcp add` (CLI) | `claude mcp add --transport stdio waggle -- waggle-mcp serve --transport stdio` | managed by `claude mcp` (e.g. project `.mcp.json`) |
+| [Claude Desktop](./claude-desktop.md) | `setup --yes` | `waggle-mcp setup --yes --clients claude-desktop` | `claude_desktop_config.json` |
+| [Codex](./codex.md) | `setup --yes` (writes an `AGENTS.md` block) | `waggle-mcp setup --yes` | `~/.codex/config.toml` (`[mcp_servers.waggle]`) |
+| [Cursor](./cursor.md) | `setup --yes` | `waggle-mcp setup --yes --clients cursor` | `~/.cursor/mcp.json` |
+| [Antigravity](./antigravity.md) | `setup --yes` | `waggle-mcp setup --yes --clients antigravity` | generic stdio JSON |
+| [Generic MCP clients](./generic-mcp.md) | Manual JSON | `pipx install waggle-mcp` | client's own `mcpServers` JSON |
+
+If a client doesn't pick up the server, see [Troubleshooting](./troubleshooting.md).
+
 ## One-line install
 
 ```bash
